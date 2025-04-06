@@ -25,6 +25,7 @@ def get_random_number() -> int:
     return random.randint(1, 100)
 
 
+
 @dp.message(CommandStart())
 async def process_start_command(message: Message):
     await message.answer(
