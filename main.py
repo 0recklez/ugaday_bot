@@ -46,7 +46,8 @@ async def process_help_command(message: Message):
 
 @dp.message(Command(commands='stats'))
 async def process_stat_command(message: Message):
-    await message.answer(f'всего игр сыграно: {user["total_games"]}\n'
+    await message.answer(f'в разработке(статистика всех игр в боте) '
+                         f'всего игр сыграно: {user["total_games"]}\n'
                          f'побед: {user["wins"]}')
 
 
