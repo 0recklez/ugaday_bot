@@ -11,7 +11,7 @@ BOT_TOKEN: str = config.tg_bot.token
 bot = Bot(BOT_TOKEN)
 dp = Dispatcher()
 
-ATTEMPTS = 7
+ATTEMPTS = 5
 
 user = {'in_game': False,
         'secret_number': 0,
@@ -46,7 +46,7 @@ async def process_help_command(message: Message):
 
 @dp.message(Command(commands='stats'))
 async def process_stat_command(message: Message):
-    await message.answer(f'в разработке(статистика всех игр в боте)\n\n '
+    await message.answer(f'в разработке(статистика всех игр в боте)\n\n'
                          f'всего игр сыграно: {user["total_games"]}\n'
                          f'побед: {user["wins"]}')
 
@@ -88,7 +88,7 @@ async def process_negative_answer(message: Message):
         await message.answer('сейчас же идет игра, угадайте число')
 
 
-@dp.message(lambda x: x.text and x.text.isdigit() and 1 <= int(x.text) <= 7 and user["in_game_cube"])
+@dp.message(lambda x: x.text and x.text.isdigit() and 1 <= int(x.text) <= 6 and user["in_game_cube"])
 async def process_cube_answer(message: Message):
     msg = await message.answer_dice()
     user["in_game_cube"] = False
